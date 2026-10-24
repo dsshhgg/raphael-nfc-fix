@@ -1,0 +1,6 @@
+id=nfc_mfc_retx_fix
+name=NFC 写卡修复（MFC 重传钳制）
+version=v6.1 (2026-10-23)
+versionCode=601
+author=k20-work
+description=HyperOS 4 的 libnfc-nci 从 MW10 升到 MW15，新加了「MIFARE Classic 重传」：认证失败会连发最多 5 次 AUTH，把 PN553 的 I2C 拖死 → HAL abort 自杀；澎湃2（MW10）没有这段代码所以一切正常。本模块把 5 条 cmp #4 改成 cmp #0（只试一次就放弃），并把打好补丁的 libsn100nfc-nci.so 连同原厂 APK 自带的整套 32 个原生库一起，以影子目录 bind 挂进 /system/app/NQNfcNci（不碰 APK 签名、不改 vendor 配置）。v6.1 修正：只放一个库会让 com.android.nfc 反复崩溃，必须放完整套。看门狗会在 NFC 重复重启时自动回滚。回原厂：创建 /data/adb/nfc_mfc_retx_fix/stock_mode 后重启。
