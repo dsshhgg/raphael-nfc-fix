@@ -54,7 +54,7 @@ else
     log "module dir : MISSING"
 fi
 if [ -f "$NFC_LIB" ]; then
-    log "live site  : $(od -An -tx1 -j 121684 -N 4 "$NFC_LIB" 2>/dev/null)"
+    log "live site  : $(od -An -tx1 -j 121104 -N 4 "$NFC_LIB" 2>/dev/null)"
     log "live size  : $(wc -c <"$NFC_LIB" 2>/dev/null)"
 else
     log "live lib   : MISSING $NFC_LIB"

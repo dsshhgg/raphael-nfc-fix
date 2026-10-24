@@ -56,7 +56,7 @@ else
     log "  module dir MISSING"
 fi
 if [ -f /vendor/lib64/nfc_nci.nqx.default.hw.so ]; then
-    log "  live site    : $(od -An -tx1 -j 121684 -N 4 /vendor/lib64/nfc_nci.nqx.default.hw.so 2>/dev/null)   (e3ffff17=patched  cf540094=stock)"
+    log "  live site    : $(od -An -tx1 -j 121104 -N 4 /vendor/lib64/nfc_nci.nqx.default.hw.so 2>/dev/null)   (5f8d0171=patched  5f110071=stock)"
 fi
 log "  mounts       : $(grep -c nfc_abort_fix /proc/self/mountinfo 2>/dev/null) entry(s)"
 

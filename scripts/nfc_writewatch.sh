@@ -112,7 +112,7 @@ stop() {
     else
       echo "模块: 未安装"
     fi
-    echo "live site: $(od -An -tx1 -j 121684 -N 4 /vendor/lib64/nfc_nci.nqx.default.hw.so 2>/dev/null | tr -d ' ')"
+    echo "live site: $(od -An -tx1 -j 121104 -N 4 /vendor/lib64/nfc_nci.nqx.default.hw.so 2>/dev/null | tr -d ' ')   (5f8d0171=patched  5f110071=stock)"
     echo
     echo "===== 关键计数（本次录制期间）====="
     if [ -f "$DMESG_F" ]; then

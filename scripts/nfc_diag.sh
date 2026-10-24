@@ -51,8 +51,8 @@ sec "2. /vendor 库与补丁字节"
 LIB=/vendor/lib64/nfc_nci.nqx.default.hw.so
 if [ -f "$LIB" ]; then
     log "库存在: $(ls -lZ "$LIB" 2>/dev/null || ls -l "$LIB")"
-    log "补丁点 121684 处 4 字节 (e3 ff ff 17 = 已打补丁 / cf 54 00 94 = 原厂):"
-    od -An -tx1 -j 121684 -N 4 "$LIB" | tee -a "$OUT"
+    log "补丁点 121104 (0x1D910) 处 4 字节 (5f 8d 01 71 = 已打补丁 / 5f 11 00 71 = 原厂):"
+    od -An -tx1 -j 121104 -N 4 "$LIB" | tee -a "$OUT"
     log "build-id (应为 9edb171e79cb93d44e64f3e7be460440):"
     od -An -tx1 -j 664 -N 16 "$LIB" | tr -d ' \n'
     log ""
