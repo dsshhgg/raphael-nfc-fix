@@ -1,0 +1,31 @@
+#!/sbin/sh
+# =============================================================================
+#  Magisk 安装器入口。实际安装逻辑由 Magisk 的 util_functions.sh 完成，
+#  安装过程中的自定义校验/权限处理在模块根目录的 customize.sh 里。
+#
+#  KernelSU / APatch 不会调用本文件（它们用自己的安装器读取 customize.sh），
+#  所以这里保持 Magisk 官方标准写法即可。
+# =============================================================================
+
+umask 022
+
+ui_print() { echo "$1"; }
+
+require_new_magisk() {
+  ui_print "*******************************"
+  ui_print " Please install Magisk v20.4+! "
+  ui_print "*******************************"
+  exit 1
+}
+
+OUTFD=$2
+ZIPFILE=$3
+
+mount /data 2>/dev/null
+
+[ -f /data/adb/magisk/util_functions.sh ] || require_new_magisk
+. /data/adb/magisk/util_functions.sh
+[ "$MAGISK_VER_CODE" -lt 20400 ] && require_new_magisk
+
+install_module
+exit 0

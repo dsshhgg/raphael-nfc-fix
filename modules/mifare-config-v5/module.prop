@@ -1,0 +1,6 @@
+id=nfc_mifare_safe
+name=NFC 加密卡防崩（关闭 MIFARE reader）
+version=v5.0 (2026-10-21)
+versionCode=500
+author=k20-work
+description=HyperOS 4 上贴加密 MIFARE 卡时，NXP NFC HAL 因连续 MIFARE AUTH 认证把 PN553 的 I2C 拖死，重试耗尽后 abort 自杀。本模块把 /vendor/etc/libnfc-nxp.conf 的 MIFARE_READER_ENABLE 改成 0x00，从源头去掉这串认证。NTAG / 普通 A 卡读写不受影响。创建 /data/adb/nfc_mifare_safe/stock_mode 可恢复原厂行为。
