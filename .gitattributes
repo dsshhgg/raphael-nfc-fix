@@ -1,0 +1,7 @@
+*.so binary
+*.sh text eol=lf
+*.prop text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+update-binary text eol=lf
+updater-script text eol=lf
