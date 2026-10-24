@@ -1,0 +1,6 @@
+id=nfc_abort_fix
+name=NFC 写卡崩溃修复（重试上限）
+version=v3.0
+versionCode=300
+author=k20
+description=修复「扫描加密卡/手环门禁卡时 NFC HAL abort() 崩溃、之后 NFC 开关消失」。原理：芯片处理这类卡时会短暂占住 I2C 总线，原厂 HAL 只重试 5 次（约 50ms）就 abort()；本模块把它提到 100 次（约 1 秒），让短暂的总线占用能被熬过去，abort 逻辑保持原样作为兜底。Magisk 走 magic mount；KernelSU 无 metamodule 时由 post-mount.sh 直接 bind mount。
