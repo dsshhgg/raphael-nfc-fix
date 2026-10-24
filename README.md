@@ -55,6 +55,14 @@ tools/
 scripts/                         设备侧只读取证脚本（见下）
 ```
 
+## 直接下载
+
+| 模块 | 版本 | 下载 |
+|---|---|---|
+| MFC 重传钳制（首选） | v6.1 | [nfc_mfc_retx_fix_v6.1.zip](https://github.com/dsshhgg/raphael-nfc-fix/releases/download/v6.1/nfc_mfc_retx_fix_v6.1.zip) |
+| HAL 重试上限 | v3.0 | [nfc_abort_fix_v3.0.zip](https://github.com/dsshhgg/raphael-nfc-fix/releases/download/v3.0/nfc_abort_fix_v3.0.zip) |
+| 关闭 MIFARE reader | v5.0 | [nfc_mifare_config_v5.0.zip](https://github.com/dsshhgg/raphael-nfc-fix/releases/download/v5.0/nfc_mifare_config_v5.0.zip) |
+
 ## 安装
 
 三个模块都是标准的 Magisk / KernelSU / APatch 模块 zip——**仓库里放的是模块源文件**，
